@@ -44,8 +44,6 @@ export class EstoqueAddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.routeActivated.snapshot.params['id'];
-    console.log(id)
     this.createForm();
   }
 
@@ -138,8 +136,7 @@ export class EstoqueAddComponent implements OnInit {
         rgOrIe: this.clientePFForm.controls['rg'].value,
         situacao: this.clientePFForm.controls['situacao'].value,
         tipoPublico: this.publicForm.controls['tipoPublico'].value,
-        telefones: this.removerMascaraTelefones(this.clientePFForm.controls['telefone'].value)
-
+        telefones: this.removerMascaraTelefones(this.clientePFForm.controls['telefones'].value)
       }
     }
 
@@ -150,7 +147,7 @@ export class EstoqueAddComponent implements OnInit {
         rgOrIe: this.clientePJForm.controls['ie'].value,
         situacao: this.clientePJForm.controls['situacao'].value,
         tipoPublico: this.publicForm.controls['tipoPublico'].value,
-        telefones: this.removerMascaraTelefones(this.clientePJForm.controls['telefone'].value)
+        telefones: this.removerMascaraTelefones(this.clientePJForm.controls['telefones'].value)
       }
     }
 
