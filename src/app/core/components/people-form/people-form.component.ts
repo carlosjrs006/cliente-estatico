@@ -16,9 +16,7 @@ export class PeopleFormComponent implements OnInit {
   @Output() backNavigation = new EventEmitter();
   @Input() telefonesEdit: any;
 
-  // Defina os separadores de teclado (vírgula e enter)
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  // Crie o FormControl para armazenar os números de telefone
   telefones: string[] = [];
 
   maskCPF: string = '000.000.000-00';
@@ -34,17 +32,13 @@ export class PeopleFormComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    // Adicione o número de telefone ao array
     if ((value || '').trim()) {
       this.telefones.push(value.trim());
     }
 
-    // Limpe o campo de input
     if (input) {
       input.value = '';
     }
-
-    // Atualize o FormControl com os números de telefone
     this.formGroup.get('telefones')?.setValue(this.telefones);
   }
 

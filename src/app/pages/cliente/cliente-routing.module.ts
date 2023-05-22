@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EstoqueAddComponent } from './estoque-add/estoque-add/estoque-add.component';
-import { EstoqueListComponent } from './cliente-list/estoque-list.component';
+
 import { ClientEditComponent } from './client-edit/client-edit.component';
+import { ClienteAddComponent } from './cliente-add/cliente-add.component';
+import { ClienteListComponent } from './cliente-list/cliente-list.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: EstoqueListComponent
+    component: ClienteListComponent
   },
   {
     path: 'cadastro-cliente',
-    component: EstoqueAddComponent
+    component: ClienteAddComponent
   },
   {
     path: 'editar-cliente/:id',
@@ -24,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EstoqueRoutingModule {}
+export class ClienteRoutingModule {}

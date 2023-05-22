@@ -19,12 +19,12 @@ const ELEMENT_DATA: any[] = [
 ];
 
 @Component({
-  selector: 'app-estoque-list',
-  templateUrl: './estoque-list.component.html',
-  styleUrls: ['./estoque-list.component.scss']
+  selector: 'app-cliente-list',
+  templateUrl: './cliente-list.component.html',
+  styleUrls: ['./cliente-list.component.scss']
 })
 
-export class EstoqueListComponent implements OnInit {
+export class ClienteListComponent implements OnInit {
 
   clientes: any[] = [];
 

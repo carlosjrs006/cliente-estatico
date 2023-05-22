@@ -14,11 +14,11 @@ import { Validator } from 'src/app/shared/utils/validator';
 
 
 @Component({
-  selector: 'app-estoque-add',
-  templateUrl: './estoque-add.component.html',
-  styleUrls: ['./estoque-add.component.scss']
+  selector: 'app-cliente-add',
+  templateUrl: './cliente-add.component.html',
+  styleUrls: ['./cliente-add.component.scss']
 })
-export class EstoqueAddComponent implements OnInit {
+export class ClienteAddComponent implements OnInit {
 
   clientePFForm!: FormGroup;
   clientePJForm!: FormGroup;
