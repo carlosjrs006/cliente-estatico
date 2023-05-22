@@ -1,0 +1,99 @@
+.basePage {
+  table {
+    margin-top: 24px;
+
+    tr {
+      transition: 200ms ease all;
+      cursor: pointer;
+      &:hover {
+        background: #cccccc23;
+      }
+    }
+  }
+  .filtros{
+    display: flex;
+    gap: 12px;
+  }
+
+  .initials-icon {
+    padding-right: 18px;
+    width: clamp(48px, 10vw, 70px) !important;
+    max-width: clamp(48px, 10vw, 70px) !important;
+    &__text {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 11px;
+      background: #2073cf33;
+      color: #134680;
+      user-select: none;
+    }
+  }
+
+  mat-divider {
+    margin-top: 32px;
+    animation: slideDownFadeIn 700ms ease both;
+    animation-delay: 500ms;
+  }
+  .btn-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    padding-right: 0;
+    margin-bottom: 24px;
+    animation: slideDownFadeIn 800ms ease both;
+  }
+
+  .emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    opacity: 0.5;
+    margin-top: 24px;
+    h3 {
+      margin: 0;
+      text-align: center;
+      span {
+        transform: translateY(6px);
+        margin-right: 5px;
+        color: #777;
+      }
+    }
+  }
+}
+
+@keyframes slideDownFadeIn {
+  0% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .estadosCol {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .inicialCol {
+    display: none;
+  }
+  .nomeCol {
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .idadeCol {
+    display: none;
+  }
+}

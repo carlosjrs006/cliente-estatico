@@ -1,0 +1,21 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <mat-spinner
+    style="
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) scale(0.4);
+      opacity: 0.4;
+    "
+  ></mat-spinner>
+</div>
+
+<app-sidebar></app-sidebar>
+<main>
+  <section
+    class="main-content"
+    [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
+  </section>
+</main>

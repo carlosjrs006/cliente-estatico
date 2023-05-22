@@ -1,0 +1,123 @@
+
+  <form [formGroup]="formGroup">
+    <fieldset>
+      <legend>Dados Cliente:</legend>
+      <article class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Codigo Cliente</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="codCliente"
+          />
+        </mat-form-field>
+      </article>
+      <article class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="nome"
+            minlength="3"
+            maxlength="64"
+          />
+          <mat-error *ngIf="formGroup.hasError('required', 'nome')">
+            Campo obrigatório
+          </mat-error>
+          <mat-error
+            *ngIf="
+            formGroup.hasError('minlength', 'nome') ||
+            formGroup.hasError('maxlength', 'nome')" >
+            Por favor, informe o nome do cliente corretamente
+          </mat-error>
+        </mat-form-field>
+      </article>
+      <article class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>CNPJ</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="cnpj"
+            mask="00.000.000/0000-00"
+          />
+          <mat-error *ngIf="formGroup.hasError('required', 'cnpj')">
+            Campo obrigatório
+          </mat-error>
+          <mat-error *ngIf="formGroup.hasError('cnpjNotValid', 'cnpj')">
+            Campo cnpj esta invalido.
+          </mat-error>
+        </mat-form-field>
+      </article>
+      <article class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>IE</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="ie"
+            minlength="3"
+            maxlength="64"
+          />
+          <mat-error *ngIf="formGroup.hasError('required', 'ie')">
+            Campo obrigatório
+          </mat-error>
+          <mat-error
+            *ngIf="
+            formGroup.hasError('minlength', 'ie') ||
+            formGroup.hasError('maxlength', 'ie')
+            "
+          >
+            Por favor, informe o ie do cliente corretamente
+          </mat-error>
+        </mat-form-field>
+      </article>
+      <article class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Situacao</mat-label>
+          <mat-select formControlName="situacao">
+            <mat-option value="ativo">Ativo</mat-option>
+            <mat-option value="inativo">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </article>
+      <article class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let telefone of telefones" [removable]="true" (removed)="telefones.splice(telefones.indexOf(telefone), 1)">
+              {{ telefone }}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input matInput formControlName="telefones" (keyup)="phoneKeyupMethod()"
+              mask="{{phoneMask}}" [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+
+              (matChipInputTokenEnd)="adicionarTelefone($event)" placeholder="Adicionar número de telefone">
+          </mat-chip-list>
+        </mat-form-field>
+      </article>
+
+    </fieldset>
+
+    <article class="btn-row">
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="formGroup.invalid"
+        type="submit"
+        (click)="saveNewCliente()"
+      >
+        Salvar
+      </button>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="backNavigationHandler()"
+      >
+        Cancelar
+      </button>
+    </article>
+  </form>
+

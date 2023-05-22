@@ -1,0 +1,221 @@
+@import url("./assets/css/normalize.css");
+@import "./assets/css/theme.scss";
+
+// GENERAL -----------------
+html,
+body {
+  height: 100%;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+// LAYOUT -----------------
+
+::-webkit-scrollbar {
+  width: 5px;
+  transition: 200ms ease all !important;
+  cursor: pointer;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00000023;
+  border-radius: 3px;
+  transition: 200ms ease all !important;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00000043;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #e63888;
+}
+
+.page-wrapper {
+  position: absolute;
+  width: calc(100vw - 80px - clamp(30px, 10vw, 600px));
+  min-height: calc(100vh - 70px - clamp(30px, 10vw, 600px));
+  padding-bottom: 48px;
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+    margin-top: -32px;
+    margin-bottom: 24px;
+    opacity: 0.7;
+    transition: 500ms ease all;
+    animation: fadeInBread 0.5s ease both;
+    user-select: none;
+
+    .material-icons-outlined {
+      transition: 500ms ease all;
+      animation: fadeInBreadIcon 0.3s ease forwards;
+      opacity: 0.4;
+      user-select: none;
+    }
+
+    button {
+      padding: 0 8px !important;
+      border-radius: 18px;
+      transition: 300ms ease all;
+      user-select: none;
+      min-width: 0 !important;
+
+      .mat-button-wrapper {
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+      }
+      .material-icons-outlined {
+        font-size: 18px;
+        transition: 300ms ease all;
+      }
+      &:hover {
+        opacity: 1 !important;
+        padding: 0 12px !important;
+        .material-icons-outlined {
+          opacity: 1;
+        }
+      }
+    }
+    button.pageBtn {
+      animation: fadeInBreadBtn 0.3s ease backwards;
+    }
+    button.subPageBtn {
+      opacity: 0.6;
+      animation: fadeInBreadBtn2 0.3s ease both;
+    }
+
+    &:hover {
+      opacity: 1;
+      .material-icons-outlined {
+        opacity: 0.7;
+      }
+    }
+
+    .home {
+      opacity: 1 !important;
+      animation: none;
+    }
+  }
+
+  .basePage {
+    height: 100%;
+    padding: clamp(16px, 3vw, 28px) clamp(12px, 3vw, 32px);
+
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px -3px rgba(0, 0, 0, 0.33),
+      0 0px 15px rgba(0, 0, 0, 0.05);
+    .btn-row {
+      padding-bottom: 42px;
+      display: flex;
+      justify-content: flex-end;
+      &__add-btn {
+        padding: 7px 42px;
+        border-radius: 25px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        word-wrap: normal;
+        white-space: normal !important;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-radius: 4px;
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        background: transparent;
+      }
+      .mat-chip-list-wrapper {
+        gap: 8px;
+        margin: 0 !important;
+      }
+    }
+    thead {
+      &:hover {
+        background-color: white !important;
+      }
+      tr:hover {
+        th {
+          background-color: white !important;
+          cursor: auto;
+        }
+      }
+    }
+  }
+
+  .pageTitle {
+    padding-left: 5px;
+    color: #636363;
+    animation: titleFadeIn 0.5s ease both;
+    animation-delay: 400ms;
+    font-size: clamp(20px, 6vw, 28px) !important;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 32px;
+    .material-icons-outlined {
+      font-size: clamp(22px, 5vw, 24px) !important;
+      animation: titleIconFadeIn 0.23s ease both;
+      animation-delay: 600ms;
+      margin-right: 4px;
+      color: #aaa;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .page-wrapper {
+    width: calc(100vw - clamp(30px, 10vw, 600px));
+    .breadcrumb {
+      display: none;
+    }
+    .pageTitle {
+      margin-bottom: 24px;
+      margin-top: -32px;
+    }
+  }
+}
+
+@keyframes titleFadeIn {
+  0% {
+    transform: translateX(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes titleIconFadeIn {
+  0% {
+    transform: scale(1.7) translate(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate(0, 2px);
+    opacity: 1;
+  }
+}

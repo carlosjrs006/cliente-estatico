@@ -1,0 +1,59 @@
+<section
+  class="overlay"
+  [ngClass]="{
+    display: openState
+  }"
+  (click)="changeOpenStateMobile()"
+></section>
+<nav
+  class="sidebar"
+  [ngClass]="{
+    openState: openState
+  }"
+  (mouseenter)="changeOpenStateDesktop($event)"
+  (mouseleave)="changeOpenStateDesktop($event)"
+>
+<div>
+  <header>
+    <div class="logoContainer">
+      <img
+        src="../../../../assets/img/testeangular-short.png"
+        alt="Logo-Short"
+        class="logoIcon"
+        *ngIf="!openState"
+      />
+      <img
+        src="../../../../assets/img/testeangular.png"
+        alt="Logo-Long"
+        class="logoText"
+        *ngIf="openState"
+      />
+    </div>
+  </header>
+
+  <div class="menuList">
+    <span
+      class="menuList__title"
+      [ngClass]="{ 'menuList__title--closed': !openState }"
+      >Gestão</span
+    >
+    <button
+      mat-button
+      [ngClass]="{ openStateBtn: !openState }"
+      [routerLink]="['/']"
+      routerLinkActive="menuList__btn--active"
+      (click)="changeOpenStateDesktop($event)"
+    >
+    <span class="material-icons-outlined"> person_search </span>
+      Clientes
+    </button>
+  </div>
+</div>
+</nav>
+<button
+  mat-icon-button
+  (click)="changeOpenStateMobile()"
+  class="hamburguer-btn"
+>
+  <span class="material-icons-outlined"> menu </span>
+</button>

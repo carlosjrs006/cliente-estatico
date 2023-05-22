@@ -1,0 +1,32 @@
+.loader-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+main {
+  width: calc(100vw - 80px);
+  margin-left: 80px;
+  transition: 100ms all ease;
+  box-sizing: border-box;
+  padding-right: clamp(15px, 7vw, 300px);
+}
+
+.main-content {
+  position: relative;
+  padding: clamp(15px, 7vw, 300px);
+  padding-right: 0;
+  padding-left: clamp(15px, 5vw, 300px);
+  padding-top: 55px;
+  transition: 200ms ease all;
+}
+
+@media (max-width: 700px) {
+  main {
+    width: 100vw;
+    margin-left: 0;
+
+    padding-right: clamp(15px, 7vw, 300px);
+  }
+}

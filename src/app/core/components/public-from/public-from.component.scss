@@ -1,0 +1,19 @@
+.example-section{
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.mat-radio-group{
+  display: flex;
+  gap: 12px;
+}
+
+.custom-radio {
+  display: inline-block;
+  width: 20px; /* Largura desejada para a área clicável */
+  height: 20px; /* Altura desejada para a área clicável */
+  border: 1px solid #000; /* Borda para a área clicável */
+  border-radius: 50%; /* Para criar um círculo */
+  margin-right: 5px; /* Espaçamento opcional */
+}

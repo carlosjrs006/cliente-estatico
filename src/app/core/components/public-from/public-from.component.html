@@ -1,0 +1,30 @@
+
+<section class="example-section">
+  <form [formGroup]="formGroup">
+  <p class="example-margin">Qual tipo de público?</p>
+  <div class="mat-radio-group">
+    <label style="display: flex;">
+      <input
+        formControlName="tipoPublico"
+        name="tipoPublico"
+        type="radio"
+        value="pessoaFisica"
+        aria-label="pessoa fisica"
+        class="custom-radio"
+      />
+      <span>pessoa fisica</span>
+    </label>
+    <label style="display: flex;">
+      <input
+        formControlName="tipoPublico"
+        name="tipoPublico"
+        type="radio"
+        value="pessoaJuridica"
+        aria-label="pessoa juridica"
+        class="custom-radio"
+      />
+      <span>pessoa juridica</span>
+    </label>
+  </div>
+  </form>
+</section>
