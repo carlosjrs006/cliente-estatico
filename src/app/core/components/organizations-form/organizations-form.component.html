@@ -59,6 +59,7 @@
             formControlName="ie"
             minlength="3"
             maxlength="64"
+            mask="000000000.00-00"
           />
           <mat-error *ngIf="formGroup.hasError('required', 'ie')">
             Campo obrigatório

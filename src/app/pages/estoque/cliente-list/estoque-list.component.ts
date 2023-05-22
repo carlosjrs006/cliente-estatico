@@ -64,6 +64,10 @@ export class EstoqueListComponent implements OnInit {
     this.getClientes();
   }
 
+  getDocMask(doc: string){
+    return doc.length === 11 ? '000.000.000-00' :'00.000.000/0000-00';
+  }
+
 
   limpar(){
     this.filtroNome = '';
@@ -72,8 +76,6 @@ export class EstoqueListComponent implements OnInit {
   }
 
   buscarPorFiltros(){
-    console.log(this.filtroNome)
-    console.log(this.filtroSituacao)
     if(this.filtroNome === '' && (this.filtroSituacao === undefined || this.filtroSituacao === '')){
       this.getClientes();
     }else{
@@ -84,6 +86,15 @@ export class EstoqueListComponent implements OnInit {
 
   }
 
+  getRgOrIeMask(rgOrIeMask: string){
+    return rgOrIeMask.length === 13 ? '000000000.00-00' :'00.000.000-0';
+  }
+
+
+  getPhoneMask(phone: string){
+    return phone.length === 10 ? '(00) 0000-0000' : '(00) 00000-0000';
+  }
+
   navigateToAddStock(){
     this.router.navigateByUrl('/cadastro-cliente');
   }
@@ -92,7 +103,6 @@ export class EstoqueListComponent implements OnInit {
      this.loading = true;
       this.service.getAllClientes().subscribe(res => {
         if(res){
-          console.log(res);
           this.clientes = res;
         }
         this.loading = false;
@@ -102,15 +112,12 @@ export class EstoqueListComponent implements OnInit {
    // Função para lidar com a ação de edição
   editarItem(id: number): void {
     // Implemente a lógica de edição aqui
-    console.log('Editar item:', id);
     this.router.navigate(['editar-cliente', id]);
   }
 
   excluirItem(id: number){
   // Implemente a lógica de edição aqui
-  console.log('Excluir item:', id);
   this.service.deleteClienteById(id).subscribe((res) => {
-    console.log(res);
     this.openSnackBar();
     this.getClientes();
   })

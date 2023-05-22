@@ -43,12 +43,12 @@ export class ClientEditComponent implements OnInit {
 
   ngOnInit() {
     const id = this.router2.snapshot.params['id'];
-    console.log(id);
+    (id);
     this.clienteService.getClienteById(id).subscribe(response => {
 
       if(response){
         this.resBody = response;
-        console.log(this.resBody)
+        (this.resBody)
         this.telefones = this.resBody.telefones;
         this.createForm();
       }
@@ -139,7 +139,7 @@ export class ClientEditComponent implements OnInit {
 
 
   saveNewCliente() {
-    console.log(this.telefones)
+    (this.telefones)
     if(this.publicForm.controls['tipoPublico'].value === 'pessoaFisica'){
       var reqBody2:any = {
         codCliente: this.resBody.codCliente,

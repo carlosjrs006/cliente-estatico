@@ -89,7 +89,7 @@
             *matCellDef="let element"
             class="rgCol"
           >
-            {{ element.rgOrIe }}
+            {{ element.rgOrIe | mask: getRgOrIeMask(element.rgOrIe)}}
           </td>
         </ng-container>
 
@@ -109,7 +109,7 @@
             mat-cell
             *matCellDef="let element"
           >
-            {{ element.cpfOrCnpj }}
+            {{ element.cpfOrCnpj | mask: getDocMask(element.cpfOrCnpj) }}
           </td>
         </ng-container>
 
@@ -138,7 +138,7 @@
               <mat-chip
                 *ngFor="let phone of element.telefones"
               >
-                {{ phone }}
+                {{ phone | mask: getPhoneMask(phone) }}
               </mat-chip>
             </mat-chip-list>
           </td>

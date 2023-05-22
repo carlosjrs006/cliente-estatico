@@ -17,7 +17,7 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   save(cliente: ClienteRequest): Observable<any> {
-    console.log(cliente);
+    (cliente);
     return this.http.post<any>(`${this.apiURL}clientes`, cliente);
   }
 
