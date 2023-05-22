@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  //apiBaseUrl: 'http://localhost:8080/'
   apiBaseUrl: 'https://clientes-api-production-8c38.up.railway.app/'
 
 };

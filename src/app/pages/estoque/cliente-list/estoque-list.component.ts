@@ -61,14 +61,7 @@ export class EstoqueListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const intervalTime = 40000; // 10 segundos
     this.getClientes();
-
-     interval(intervalTime)
-       .pipe(take(Infinity))
-       .subscribe(() => {
-        this.getClientes();
-       });
   }
 
 
