@@ -121,6 +121,7 @@ export class EstoqueAddComponent implements OnInit {
 
   public removerMascaraTelefones(phone:string[]): any{
 
+    if(!phone) return null;
     const listNum = phone.map((res:string) => res.replace(/\D/g, ''));
 
     return listNum;
