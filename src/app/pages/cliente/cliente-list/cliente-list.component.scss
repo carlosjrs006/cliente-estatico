@@ -84,7 +84,7 @@
 }
 
 @media (max-width: 600px) {
-  .inicialCol {
+  .codClienteCol {
     display: none;
   }
   .nomeCol {
@@ -97,3 +97,32 @@
     display: none;
   }
 }
+
+@media (width< 500px) {
+  .input-container {
+    display: flex;
+     /* Ajuste conforme necessário */
+    flex-direction: column;
+  }
+
+  .mat-table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.input-container {
+  display: flex;
+ /* Ajuste conforme necessário */
+}
+
+.flex-field {
+  flex: 1;
+  max-width: 300px; /* Ajuste conforme necessário */
+}
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+

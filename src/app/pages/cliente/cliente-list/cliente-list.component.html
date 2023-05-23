@@ -25,15 +25,15 @@
     </article>
 
     <ng-container>
-      <div class="filtros">
+      <div class="filtros input-container">
         <!-- Campos de filtro -->
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline"  class="flex-field">
           <input matInput type="text" placeholder="Pesquisa por nome"
           (keyup)="buscarPorFiltros()"
           [(ngModel)]="filtroNome">
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="flex-field">
           <mat-label>Situação</mat-label>
           <mat-select [(ngModel)]="filtroSituacao" (selectionChange)="buscarPorFiltros()">
             <mat-option value="ativo">Ativo</mat-option>
@@ -46,7 +46,7 @@
   </ng-container>
 
     <ng-container *ngIf="clientes.length > 0; else emptyState">
-      <table mat-table [dataSource]="clientes" class="mat-elevation-z1">
+      <table mat-table [dataSource]="clientes" class="mat-elevation-z1 mat-table-responsive">
 
 
         <ng-container matColumnDef="codCliente">
