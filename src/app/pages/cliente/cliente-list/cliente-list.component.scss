@@ -83,6 +83,11 @@
     display: block;
     font-size: 12px;
   }
+
+  .mat-header-row{
+    display: flex;
+    gap: 19px;
+  }
 }
 
 @media (width< 500px) {
