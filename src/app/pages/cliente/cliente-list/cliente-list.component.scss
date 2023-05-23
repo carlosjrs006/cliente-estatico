@@ -76,25 +76,12 @@
     opacity: 1;
   }
 }
-
-@media (max-width: 700px) {
-  .estadosCol {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .codClienteCol {
-    display: none;
-  }
-  .nomeCol {
-    padding-left: 16px;
-  }
-}
-
-@media (max-width: 500px) {
-  .idadeCol {
-    display: none;
+@media (width< 508px) {
+  /* Alterações de estilo para telas menores que 768px */
+  .mat-cell,
+  .mat-header-cell {
+    display: block;
+    font-size: 12px;
   }
 }
 
@@ -111,17 +98,23 @@
     display: flex;
     flex-direction: column;
   }
+
+  .mat-header-row{
+    display: flex;
+    gap: 39px;
+  }
+  .input-container {
+    display: flex;
+   /* Ajuste conforme necessário */
+  }
+
+  .flex-field {
+    flex: 1;
+    max-width: 300px; /* Ajuste conforme necessário */
+  }
 }
 
-.input-container {
-  display: flex;
- /* Ajuste conforme necessário */
-}
 
-.flex-field {
-  flex: 1;
-  max-width: 300px; /* Ajuste conforme necessário */
-}
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
