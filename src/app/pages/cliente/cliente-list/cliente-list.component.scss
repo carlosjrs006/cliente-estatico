@@ -77,20 +77,6 @@
   }
 }
 
-@media (width< 508px) {
-  /* Alterações de estilo para telas menores que 768px */
-  .mat-cell,
-  .mat-header-cell {
-    display: block;
-    font-size: 12px;
-  }
-
-  .mat-header-row{
-    display: contents;
-    gap: 19px;
-  }
-}
-
 @media (width< 500px) {
   .input-container {
     display: flex;
@@ -109,10 +95,18 @@
     display: flex;
     flex-direction: row;
   }
+
+  .mat-cell,
+  .mat-header-cell {
+    display: block;
+    font-size: 12px;
+  }
+
+  .mat-header-row{
+    display: contents;
+    gap: 19px;
+  }
 }
-
-
-
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
