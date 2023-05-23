@@ -55,6 +55,13 @@ export class PeopleFormComponent implements OnInit {
     }
   }
 
+  getmaskRg(rg: string){
+    if(rg.length === 9){
+      return '00.000.000-0'
+    }
+    return;
+  }
+
   ngOnInit(): void {
     if(this.telefonesEdit){
       this.telefones = this.telefonesEdit;
@@ -68,5 +75,7 @@ export class PeopleFormComponent implements OnInit {
   backNavigationHandler(){
     this.backNavigation.emit();
   }
+
+
 
 }

@@ -60,7 +60,7 @@
             formControlName="rg"
             minlength="3"
             maxlength="11"
-            mask="00.000.000-0"
+            [mask]="getmaskRg(this.formGroup.controls['rg'].value)"
           />
           <mat-error *ngIf="formGroup.hasError('required', 'rg')">
             Campo obrigatório
