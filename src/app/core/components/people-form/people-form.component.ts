@@ -56,10 +56,13 @@ export class PeopleFormComponent implements OnInit {
   }
 
   getmaskRg(rg: string){
-    if(rg.length === 9){
-      return '00.000.000-0'
+    if(rg){
+      if(rg.length === 9){
+        return '00.000.000-0'
+      }
+      return'';
     }
-    return;
+    return'';
   }
 
   ngOnInit(): void {
