@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProdutosAddComponent } from './produtos-add/produtos-add.component';
 import { ProdutoRoutingModule } from './produto-routing.module';
 import { ProdutosListComponent } from './produtos-list/produtos-list.component';
+import { CurrentyFormatPipe } from 'src/app/shared/utils/pipe/currenty-format.pipe';
 
 
 
@@ -24,7 +25,8 @@ import { ProdutosListComponent } from './produtos-list/produtos-list.component';
   ],
   declarations: [
     ProdutosAddComponent,
-    ProdutosListComponent
+    ProdutosListComponent,
+    CurrentyFormatPipe
   ],
   exports:[
     ProdutosAddComponent,

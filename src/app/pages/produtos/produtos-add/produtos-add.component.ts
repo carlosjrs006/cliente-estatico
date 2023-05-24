@@ -23,6 +23,7 @@ export class ProdutosAddComponent implements OnInit {
   idImagem!: string;
   urlImagem!: string;
 
+
   @ViewChild('imageInputFile') imagenFile!: ElementRef;
 
   constructor(

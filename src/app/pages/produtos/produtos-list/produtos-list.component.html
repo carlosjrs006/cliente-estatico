@@ -67,7 +67,7 @@
             *matCellDef="let element"
             class="nomeCol"
           >
-            <img [src]="element.urlImagem" style="max-width: 80px;">
+            <img [src]="element.urlImagem ? element.urlImagem : '../assets/img/Semimages.png'" style="max-width: 80px;">
           </td>
         </ng-container>
 
@@ -109,7 +109,7 @@
             mat-cell
             *matCellDef="let element"
           >
-            {{ element.valorProduto }}
+            {{ element.valorProduto | currentyFormat }}
           </td>
         </ng-container>
 
@@ -119,7 +119,7 @@
             mat-cell
             *matCellDef="let element"
           >
-            {{ element.custoProduto}}
+            {{ element.custoProduto | currentyFormat}}
           </td>
         </ng-container>
 

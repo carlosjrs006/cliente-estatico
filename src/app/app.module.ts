@@ -1,18 +1,14 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { CoreModule } from './core/core.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
@@ -22,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     LoadingInterceptor,
