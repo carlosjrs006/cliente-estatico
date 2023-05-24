@@ -49,6 +49,8 @@ export class ClienteListComponent implements OnInit {
   loading: boolean = true;
 
 
+
+
   // Variáveis de filtro
   filtroNome!: string;
   filtroSituacao!: string;

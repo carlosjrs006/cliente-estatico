@@ -31,7 +31,9 @@ export class ClienteAddComponent implements OnInit {
 
   telefone: any;
 
-  phones: any;
+  telefones!: string[];
+
+  phones!: string[];
   private routeSubscription!: Subscription;
 
   constructor(
@@ -53,6 +55,7 @@ export class ClienteAddComponent implements OnInit {
       panelClass: ['mat-toolbar', 'mat-primary'] // classes CSS adicionais
     });
   }
+
 
   createForm() {
     this.publicForm = this.formBuilder.group({
@@ -119,15 +122,26 @@ export class ClienteAddComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  public removerMascaraTelefones(phone:string[]): any{
-
+  public removerMascaraTelefones(phone: any): any{
     if(!phone) return null;
-    const listNum = phone.map((res:string) => res.replace(/\D/g, ''));
-
-    return listNum;
-  }
 
 
+    const telefones: string[] = [];
+
+    var listNum;
+
+      if (phone) {
+        if (typeof phone === 'string') {
+          telefones.push(phone.trim());
+        } else if (Array.isArray(phone)) {
+          telefones.push(...phone.map((telefone: string) => telefone.trim()));
+        }
+      }
+
+      listNum = telefones.map((res:string) => res.replace(/\D/g, ''));
+
+      return listNum;
+    }
 
   saveNewCliente() {
     if(this.publicForm.controls['tipoPublico'].value === 'pessoaFisica'){

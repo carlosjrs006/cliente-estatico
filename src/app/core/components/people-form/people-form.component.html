@@ -90,13 +90,13 @@
           <mat-label>Telefone</mat-label>
           <mat-chip-list #chipList>
             <mat-chip *ngFor="let telefone of telefones" [removable]="true" (removed)="telefones.splice(telefones.indexOf(telefone), 1)">
-              {{ telefone }}
+              {{ telefone | mask: phoneMask }}
               <mat-icon matChipRemove>cancel</mat-icon>
             </mat-chip>
             <input matInput formControlName="telefones" (keyup)="phoneKeyupMethod()"
               mask="{{phoneMask}}" [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="adicionarTelefone($event)" placeholder="Adicionar número de telefone">
+              [matChipInputSeparatorKeyCodes]="sepatorKey()"
+              (keyup.enter)="adicionarTelefone()" placeholder="Adicionar número de telefone">
           </mat-chip-list>
         </mat-form-field>
       </article>

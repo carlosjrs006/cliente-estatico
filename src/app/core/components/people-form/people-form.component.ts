@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -26,20 +26,21 @@ export class PeopleFormComponent implements OnInit {
   phoneNumber = '';
   previusLength = 0;
 
+  @ViewChild('telefoneInput') telefoneInput!: any;
+
   constructor() { }
 
-  adicionarTelefone(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
+  sepatorKey(){
+    return this.formGroup.get('telefones')?.value.length > 10 ? this.separatorKeysCodes : [];
+  }
 
-    if ((value || '').trim()) {
-      this.telefones.push(value.trim());
-    }
+  adicionarTelefone(): void {
+    const telefoneValue = this.formGroup.get('telefones')?.value;
 
-    if (input) {
-      input.value = '';
+    if (telefoneValue && telefoneValue.trim() !== '') {
+      this.telefones.push(telefoneValue.trim());
+      this.formGroup.get('telefones')?.setValue('');
     }
-    this.formGroup.get('telefones')?.setValue(this.telefones);
   }
 
   phoneKeyupMethod(){

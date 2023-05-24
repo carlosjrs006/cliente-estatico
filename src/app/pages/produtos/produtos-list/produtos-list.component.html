@@ -1,0 +1,154 @@
+
+<div class="page-wrapper">
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <button mat-button style="opacity: 0.6" class="subPageBtn" disabled>
+      <span class="material-icons-outlined home"> home </span>
+    </button>
+    <span class="material-icons-outlined"> chevron_right </span>
+    <button mat-button color="primary" class="pageBtn"> Produtos </button>
+  </nav>
+
+  <h1 class="pageTitle">
+    <span class="material-icons-outlined"> person_search </span>
+    Produtos
+  </h1>
+  <section class="basePage">
+    <article class="btn-row">
+      <button
+        mat-flat-button
+        color="primary"
+        class="btn-row__add-btn"
+        (click)="navigateToAddStock()"
+      >
+        Cadastrar Novos Produtos
+      </button>
+    </article>
+
+    <ng-container>
+      <div class="filtros input-container">
+        <!-- Campos de filtro -->
+        <mat-form-field appearance="outline"  class="flex-field">
+          <input matInput type="text" placeholder="Pesquisa por nome"
+          (keyup)="buscarPorFiltros()"
+          [(ngModel)]="filtroNome">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Situação</mat-label>
+          <mat-select [(ngModel)]="filtroSituacao" (selectionChange)="buscarPorFiltros()">
+            <mat-option value="ativo">Ativo</mat-option>
+            <mat-option value="inativo">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Botão para aplicar os filtros -->
+      </div>
+      <button mat-raised-button color="primary" (click)="limpar()">Limpar Filtros</button>
+  </ng-container>
+
+    <ng-container *ngIf="produtos.length > 0; else emptyState">
+      <table mat-table [dataSource]="produtos" class="mat-elevation-z1 mat-table-responsive">
+
+
+        <ng-container matColumnDef="codProduto">
+          <th mat-header-cell *matHeaderCellDef class="codClienteCol">Código do produto</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="codClienteCol"
+          >
+            {{ element.codProduto }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="imagen">
+          <th mat-header-cell *matHeaderCellDef class="nomeCol">Imagem</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="nomeCol"
+          >
+            <img [src]="element.urlImagem" style="max-width: 80px;">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nomeProduto">
+          <th mat-header-cell *matHeaderCellDef class="idadeCol">Nome Produto</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="rgCol"
+          >
+            {{ element.nomeProduto }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantidade">
+          <th mat-header-cell *matHeaderCellDef class="idadeCol">Quantidade</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="rgCol"
+          >
+            {{ element.quantidade}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="situacao">
+          <th mat-header-cell *matHeaderCellDef>Situação</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.situacao }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorProduto">
+          <th mat-header-cell *matHeaderCellDef>Valor do Produto</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.valorProduto }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="custoProduto">
+          <th mat-header-cell *matHeaderCellDef>Custo Produto</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.custoProduto}}
+          </td>
+        </ng-container>
+
+        <!-- Coluna de Ação (Botão de Edição) -->
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="editarItem(element.codCliente)" style="color: blue;">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="excluirItem(element.codCliente)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </ng-container>
+    <ng-template #emptyState>
+      <article class="emptyState" *ngIf="!loading">
+        <h3>
+          <span class="material-icons-outlined"> announcement </span>
+          Não há clientes cadastrados
+        </h3>
+      </article>
+    </ng-template>
+  </section>
+</div>
+

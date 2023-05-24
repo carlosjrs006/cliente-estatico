@@ -41,12 +41,20 @@
       mat-button
       [ngClass]="{ openStateBtn: !openState }"
       [routerLink]="['/']"
-      routerLinkActive="menuList__btn--active"
       (click)="changeOpenStateDesktop($event)"
     >
     <span class="material-icons-outlined"> person_search </span>
       Clientes
     </button>
+    <button
+    mat-button
+    [ngClass]="{ openStateBtn: !openState }"
+    [routerLink]="['/produtos']"
+    (click)="changeOpenStateDesktop($event)"
+  >
+  <span class="material-icons-outlined">inventory_2 </span>
+    Produtos
+  </button>
   </div>
 </div>
 </nav>
