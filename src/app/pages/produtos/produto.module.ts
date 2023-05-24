@@ -9,6 +9,7 @@ import { ProdutosAddComponent } from './produtos-add/produtos-add.component';
 import { ProdutoRoutingModule } from './produto-routing.module';
 import { ProdutosListComponent } from './produtos-list/produtos-list.component';
 import { CurrentyFormatPipe } from 'src/app/shared/utils/pipe/currenty-format.pipe';
+import { ProdutosEditComponent } from './produtos-edit/produtos-edit.component';
 
 
 
@@ -26,7 +27,8 @@ import { CurrentyFormatPipe } from 'src/app/shared/utils/pipe/currenty-format.pi
   declarations: [
     ProdutosAddComponent,
     ProdutosListComponent,
-    CurrentyFormatPipe
+    CurrentyFormatPipe,
+    ProdutosEditComponent
   ],
   exports:[
     ProdutosAddComponent,

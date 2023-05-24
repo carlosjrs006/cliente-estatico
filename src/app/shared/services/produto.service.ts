@@ -25,7 +25,7 @@ export class ProdutoService {
   }
 
   deleteClienteById(id: any): Observable<any>{
-    return this.http.delete<any>(`${this.apiURL}storege/delete/${id}`)
+    return this.http.delete<any>(`${this.apiURL}produtos/${id}`)
   }
 
   getAllProdutos(): Observable<any>{

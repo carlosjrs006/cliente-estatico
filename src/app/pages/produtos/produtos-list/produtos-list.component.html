@@ -127,11 +127,11 @@
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef>Ações</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" (click)="editarItem(element.codCliente)" style="color: blue;">
+            <button mat-icon-button color="primary" (click)="editarItem(element.codProduto)" style="color: blue;">
               <mat-icon>edit</mat-icon>
             </button>
 
-            <button mat-icon-button color="primary" (click)="excluirItem(element.codCliente)">
+            <button mat-icon-button color="primary" (click)="excluirItem(element.codProduto)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
