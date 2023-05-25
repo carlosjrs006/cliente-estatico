@@ -15,9 +15,9 @@ import { LoginService } from './shared/services/login.service';
 })
 export class AppComponent implements OnInit {
 
-  username!: string;
-  isLogged!: boolean;
-  isAdmin!: boolean;
+  // username!: string;
+  // isLogged!: boolean;
+  // isAdmin!: boolean;
 
   constructor(
     private contexts: ChildrenOutletContexts,
@@ -26,11 +26,10 @@ export class AppComponent implements OnInit {
     private messageService: MessageService,
     private loginService: LoginService
   ) {
-    this.configure();
+    // this.configure();
   }
 
   ngOnInit(): void {
-
   }
 
   getRouteAnimationData() {
@@ -40,28 +39,28 @@ export class AppComponent implements OnInit {
   }
 
 
-  authConfig: AuthConfig = {
-    issuer: 'http://localhost:8888/auth/realms/pdv-web',
-    redirectUri: window.location.origin,
-    clientId: 'pdv-frontend',
-    responseType: 'code',
-    scope: 'openid profile email offline_access',
-    showDebugInformation: true,
-  };
+  // authConfig: AuthConfig = {
+  //   issuer: 'http://localhost:8888/auth/realms/pdv-web',
+  //   redirectUri: window.location.origin,
+  //   clientId: 'pdv-frontend',
+  //   responseType: 'code',
+  //   scope: 'openid profile email offline_access',
+  //   showDebugInformation: true,
+  // };
 
-  configure(): void {
-    this.oauthService.configure(this.authConfig);
-    this.oauthService.tokenValidationHandler = new NullValidationHandler();
-    this.oauthService.setupAutomaticSilentRefresh();
-    this.oauthService.loadDiscoveryDocument().then(() => this.oauthService.tryLogin())
-      .then(() => {
-        if (this.oauthService.getIdentityClaims()) {
-          this.isLogged = this.loginService.getIsLogged();
-          this.isAdmin = this.loginService.getIsAdmin();
-          this.username = this.loginService.getUsername();
-          this.messageService.sendMessage(this.loginService.getUsername());
-        }
-      });
-  }
+  // configure(): void {
+  //   this.oauthService.configure(this.authConfig);
+  //   this.oauthService.tokenValidationHandler = new NullValidationHandler();
+  //   this.oauthService.setupAutomaticSilentRefresh();
+  //   this.oauthService.loadDiscoveryDocument().then(() => this.oauthService.tryLogin())
+  //     .then(() => {
+  //       if (this.oauthService.getIdentityClaims()) {
+  //         this.isLogged = this.loginService.getIsLogged();
+  //         this.isAdmin = this.loginService.getIsAdmin();
+  //         this.username = this.loginService.getUsername();
+  //         this.messageService.sendMessage(this.loginService.getUsername());
+  //       }
+  //     });
+  // }
 
 }

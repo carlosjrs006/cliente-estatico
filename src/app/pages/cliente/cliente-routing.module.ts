@@ -11,17 +11,17 @@ const routes: Routes = [
   {
     path: '',
     component: ClienteListComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin']}
   },
   {
     path: 'cadastro-cliente',
     component: ClienteAddComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   },
   {
     path: 'editar-cliente/:id',
     component: ClientEditComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   }
 ];
 

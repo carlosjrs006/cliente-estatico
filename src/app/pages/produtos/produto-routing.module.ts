@@ -11,17 +11,17 @@ const routes: Routes = [
   {
     path: '',
     component: ProdutosListComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin']}
   },
   {
     path: 'cadastro-produto',
     component: ProdutosAddComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   },
   {
     path: 'editar-produto/:id',
     component: ProdutosEditComponent,
-    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
+    //canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   }
 ];
 

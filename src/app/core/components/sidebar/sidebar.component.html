@@ -12,7 +12,7 @@
       </div>
     </header>
 
-    <div class="menuList" *ngIf="isLogged">
+    <div class="menuList">
       <span class="menuList__title" [ngClass]="{ 'menuList__title--closed': !openState }">Gestão</span>
       <button mat-button [ngClass]="{ openStateBtn: !openState }" [routerLink]="['/clientes']"
         (click)="changeOpenStateDesktop($event)">
@@ -26,7 +26,7 @@
       </button>
     </div>
 
-    <div class="menuList">
+    <!-- <div class="menuList">
       <span class="menuList__title" [ngClass]="{ 'menuList__title--closed': !openState }">Usuario</span>
       <button mat-button [ngClass]="{ openStateBtn: !openState }" (click)="login()" *ngIf="!isLogged">
         <span class="material-icons-outlined"> login </span>
@@ -41,7 +41,7 @@
         <span class="material-icons-outlined">person </span>
         {{ username }}
       </button>
-    </div>
+    </div> -->
 
 
   </div>

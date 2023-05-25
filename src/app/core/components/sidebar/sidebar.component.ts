@@ -11,9 +11,9 @@ export class SidebarComponent implements OnInit {
   openState = false;
   animationState = false;
 
-  @Input() isLogged!: boolean;
-  @Input() isAdmin!: boolean;
-  @Input() username!: string;
+  // @Input() isLogged!: boolean;
+  // @Input() isAdmin!: boolean;
+  // @Input() username!: string;
 
   constructor(private loginService: LoginService
   ) {}
@@ -39,11 +39,11 @@ export class SidebarComponent implements OnInit {
     this.openState = !this.openState;
   }
 
-  public login(): void {
-    this.loginService.login();
-  }
+  // public login(): void {
+  //   this.loginService.login();
+  // }
 
-  public logout(): void {
-    this.loginService.logout();
-  }
+  // public logout(): void {
+  //   this.loginService.logout();
+  // }
 }

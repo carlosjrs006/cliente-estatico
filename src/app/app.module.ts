@@ -25,7 +25,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
     OAuthModule.forRoot({
       resourceServer:
       {
-          allowedUrls: ['https://clientes-api-production-8c38.up.railway.app/','http://localhost:8081/'],
+          allowedUrls: ['https://clientes-api-production-8c38.up.railway.app/clientes','http://localhost:8081/cleintes'],
           sendAccessToken: true
       }
   })
@@ -38,12 +38,12 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
       useClass: LoadingInterceptor,
       multi: true,
     },
-    HttpConfigInterceptor,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpConfigInterceptor,
-      multi: true,
-    },
+    // HttpConfigInterceptor,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpConfigInterceptor,
+    //   multi: true,
+    // },
     {
       provide: LOCALE_ID,
       useValue: 'pt-br'
