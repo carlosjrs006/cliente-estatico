@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
 
   authConfig: AuthConfig = {
-    issuer: 'http://localhost:8080/auth/realms/pdv-auth',
+    issuer: 'http://localhost:8888/auth/realms/pdv-web',
     redirectUri: window.location.origin,
     clientId: 'pdv-frontend',
     responseType: 'code',

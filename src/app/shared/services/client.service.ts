@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,8 @@ import { ClienteRequest, ClienteResponse } from './../interfaces/dtos/cliente';
   providedIn: 'root'
 })
 export class ClienteService {
+
+  httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 
   apiURL: string = environment.apiBaseUrl;
 
@@ -37,6 +39,6 @@ export class ClienteService {
   }
 
   update(cliente: ClienteRequest): Observable<any>{
-    return this.http.put<any>(`${this.apiURL}clientes/editar-cliente`, cliente);
+    return this.http.put<any>(`${this.apiURL}clientes/editar-cliente`, cliente,this.httpOptions);
   }
 }

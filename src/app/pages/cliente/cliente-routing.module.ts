@@ -4,20 +4,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientEditComponent } from './client-edit/client-edit.component';
 import { ClienteAddComponent } from './cliente-add/cliente-add.component';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
+import { GuardRotaGuard } from 'src/app/shared/guards/guard-rota.guard';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ClienteListComponent
+    component: ClienteListComponent,
+    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin']}
   },
   {
     path: 'cadastro-cliente',
-    component: ClienteAddComponent
+    component: ClienteAddComponent,
+    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   },
   {
     path: 'editar-cliente/:id',
-    component: ClientEditComponent
+    component: ClientEditComponent,
+    canActivate: [GuardRotaGuard], data: {requiredRoles: ['admin', 'user']}
   }
 ];
 
