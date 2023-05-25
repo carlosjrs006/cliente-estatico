@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from 'src/app/shared/services/login.service';
 
 
 @Component({
@@ -10,9 +11,11 @@ export class SidebarComponent implements OnInit {
   openState = false;
   animationState = false;
 
-  @Input() usuarioLogado!: string;
+  @Input() isLogged!: boolean;
+  @Input() isAdmin!: boolean;
+  @Input() username!: string;
 
-  constructor(
+  constructor(private loginService: LoginService
   ) {}
 
   ngOnInit() {
@@ -34,5 +37,13 @@ export class SidebarComponent implements OnInit {
 
   changeOpenStateMobile() {
     this.openState = !this.openState;
+  }
+
+  public login(): void {
+    this.loginService.login();
+  }
+
+  public logout(): void {
+    this.loginService.logout();
   }
 }

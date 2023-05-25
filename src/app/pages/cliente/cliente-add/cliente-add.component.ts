@@ -110,7 +110,7 @@ export class ClienteAddComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
-    this.router.navigate(['']);
+    this.router.navigate(['clientes']);
   }
 
   navigateToActuations() {
@@ -119,7 +119,7 @@ export class ClienteAddComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
-    this.router.navigate(['']);
+    this.router.navigate(['clientes']);
   }
 
   public removerMascaraTelefones(phone: any): any{
@@ -169,7 +169,7 @@ export class ClienteAddComponent implements OnInit {
     this.clienteService.save(this.reqBody).subscribe((response) => {
       this.limpaFormulario();
       this.openSnackBar();
-      this.router.navigate(['']);
+      this.router.navigate(['clientes']);
     },
     (error) => {
     this.dialog.open(ModalErrorComponent, {

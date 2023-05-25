@@ -98,7 +98,7 @@ export class ClienteListComponent implements OnInit {
   }
 
   navigateToAddStock(){
-    this.router.navigateByUrl('/cadastro-cliente');
+    this.router.navigateByUrl('clientes/cadastro-cliente');
   }
 
    getClientes() {
@@ -114,7 +114,7 @@ export class ClienteListComponent implements OnInit {
    // Função para lidar com a ação de edição
   editarItem(id: number): void {
     // Implemente a lógica de edição aqui
-    this.router.navigate(['editar-cliente', id]);
+    this.router.navigate(['clientes/editar-cliente', id]);
   }
 
   excluirItem(id: number){

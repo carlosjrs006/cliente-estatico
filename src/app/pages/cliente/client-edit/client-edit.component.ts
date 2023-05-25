@@ -117,7 +117,7 @@ export class ClientEditComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
-    this.router.navigate(['']);
+    this.router.navigate(['clientes']);
   }
 
   navigateToActuations() {
@@ -126,7 +126,7 @@ export class ClientEditComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
-    this.router.navigate(['']);
+    this.router.navigate(['clientes']);
   }
 
   public removerMascaraTelefones(phone:string[]): any{
@@ -165,7 +165,7 @@ export class ClientEditComponent implements OnInit {
     }
     this.clienteService.update(reqBody2).subscribe((response) => {
       this.openSnackBar();
-      this.router.navigate(['']);
+      this.router.navigate(['clientes']);
     });
   }
 
