@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { HttpConfigInterceptor } from './shared/interceptors/http-config.interceptor';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,8 @@ import { HttpConfigInterceptor } from './shared/interceptors/http-config.interce
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
+    HttpClientModule,
+    HttpClientXsrfModule,
     SharedModule,
     OAuthModule.forRoot({
       resourceServer:
