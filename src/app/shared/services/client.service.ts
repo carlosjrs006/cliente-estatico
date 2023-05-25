@@ -15,38 +15,32 @@ export class ClienteService {
 
   apiURL: string = environment.apiBaseUrl;
 
-  headers = {
-    'Access-Control-Allow-Origin': '*', // Permitir solicitações de todos os domínios
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE', // Métodos permitidos
-    'Access-Control-Allow-Headers': '*', // Permitir todos os cabeçalhos
-  };
-
   constructor(private http: HttpClient) {
 
   }
 
   save(cliente: ClienteRequest): Observable<any> {
-    return this.http.post<any>(`${this.apiURL}clientes`, cliente,{headers:this.headers});
+    return this.http.post<any>(`${this.apiURL}clientes`, cliente);
   }
 
   getAllClientes(): Observable<any>{
 
-    return this.http.get<any>(`${this.apiURL}clientes`, {headers:this.headers})
+    return this.http.get<any>(`${this.apiURL}clientes`)
   }
 
   getAllFiltroClientes(nome: string, situacao: string): Observable<any>{
-    return this.http.get<any>(`${this.apiURL}clientes/filtros?nome=${(nome === undefined)?'': nome}&situacao=${(situacao === undefined)?'': situacao}`,{headers:this.headers})
+    return this.http.get<any>(`${this.apiURL}clientes/filtros?nome=${(nome === undefined)?'': nome}&situacao=${(situacao === undefined)?'': situacao}`)
   }
 
   deleteClienteById(id: any): Observable<any>{
-    return this.http.delete<any>(`${this.apiURL}clientes/${id}`,{headers:this.headers})
+    return this.http.delete<any>(`${this.apiURL}clientes/${id}`)
   }
 
   getClienteById(id: any): Observable<ClienteResponse>{
-    return this.http.get<ClienteResponse>(`${this.apiURL}clientes/${id}`,{headers:this.headers})
+    return this.http.get<ClienteResponse>(`${this.apiURL}clientes/${id}`)
   }
 
   update(cliente: ClienteRequest): Observable<any>{
-    return this.http.put<any>(`${this.apiURL}clientes/editar-cliente`, cliente,{headers:this.headers});
+    return this.http.put<any>(`${this.apiURL}clientes/editar-cliente`, cliente);
   }
 }

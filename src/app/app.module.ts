@@ -25,7 +25,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
     OAuthModule.forRoot({
       resourceServer:
       {
-          allowedUrls: ['https://clientes-api-production-8c38.up.railway.app/clientes','http://localhost:8081/cleintes'],
+          allowedUrls: ['https://clientes-api-production-8c38.up.railway.app/','http://localhost:8081/'],
           sendAccessToken: true
       }
   })
