@@ -20,7 +20,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     OAuthModule.forRoot({
       resourceServer: {
-          allowedUrls: ['http://localhost:8081/'],
+          allowedUrls: ['https://clientes-api-production-8c38.up.railway.app/'],
           sendAccessToken: true
       }
   })
