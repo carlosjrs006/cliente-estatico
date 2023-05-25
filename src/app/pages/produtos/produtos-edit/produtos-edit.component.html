@@ -1,1 +1,118 @@
-<p>produtos-edit works!</p>
+<div class="page-wrapper" *ngIf="mostrarTela">
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <button mat-button style="opacity: 0.6" class="subPageBtn" disabled>
+      <span class="material-icons-outlined home"> home </span>
+    </button>
+    <span class="material-icons-outlined"> chevron_right </span>
+    <button mat-button color="primary" class="subPageBtn" routerLink="/produtos">
+      Produtos
+    </button>
+    <span class="material-icons-outlined"> chevron_right </span>
+    <button mat-button color="primary" class="pageBtn">Editar Produto</button>
+  </nav>
+
+  <h1 class="pageTitle">
+    <span class="material-icons-outlined">inventory_2</span>
+    Editar Produto
+  </h1>
+  <section class="basePage">
+    <h3>Preencha abaixo os dados do produto:</h3>
+    <form [formGroup]="formGroup">
+      <fieldset>
+        <legend>Dados Produto:</legend>
+
+        <article class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Código Produto</mat-label>
+            <input type="text" matInput formControlName="codProduto" />
+          </mat-form-field>
+        </article>
+
+        <article class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome do produto</mat-label>
+            <input type="text" matInput formControlName="nomeProduto" minlength="3" maxlength="64" />
+            <mat-error *ngIf="formGroup.hasError('required', 'nomeProduto')">
+              Campo obrigatório
+            </mat-error>
+            <mat-error *ngIf="
+              formGroup.hasError('minlength', 'nomeProduto') ||
+              formGroup.hasError('maxlength', 'nomeProduto')">
+              Por favor, informe o nome do cliente corretamente
+            </mat-error>
+          </mat-form-field>
+        </article>
+
+        <article class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Custo do produto</mat-label>
+            <input type="text" matInput formControlName="custoProduto" mask="separator.2" thousandSeparator="."
+              decimalMarker="," prefix="R$ " />
+            <mat-error *ngIf="formGroup.hasError('required', 'custoProduto')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </article>
+
+        <article class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Valor do produto</mat-label>
+            <input type="text" matInput formControlName="valorProduto" mask="separator.2" thousandSeparator="."
+              decimalMarker="," prefix="R$ " />
+            <mat-error *ngIf="formGroup.hasError('required', 'valorProduto')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </article>
+        <article class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Quantidade</mat-label>
+            <input type="number" matInput formControlName="quantidade" />
+            <mat-error *ngIf="formGroup.hasError('required', 'quantidade')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </article>
+        <article class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Situação</mat-label>
+            <input type="text" matInput formControlName="situacao" />
+          </mat-form-field>
+        </article>
+        <!-- Input tipo file -->
+        <article class="form-row">
+          <div class="custom-file-input">
+            <input type="file" id="imagen" formControlName="imagen" (change)="onFileSelected($event)"
+              accept=".png,.jpg,.jpeg,.gif" #imageInputFile />
+            <label for="imagen">
+              <mat-icon>attach_file</mat-icon> Selecionar uma Imagem
+            </label>
+          </div>
+        </article>
+
+        <article class="form-row" *ngIf="imagen">
+          <div style="display: flex;flex-direction: column;">
+            <div class="mt-5">
+              <h5>Vista Previa: </h5>
+              <div>
+                <img class="img-thumbnail" style="max-width: 200px" [src]="imagenMin" />
+              </div>
+            </div>
+            <div style=" display: flex; flex-direction: row;gap: 15px;">
+              <button mat-flat-button color="warn" [disabled]="!imagen" (click)="resetArquivo()">Excluir Imagem</button>
+            </div>
+          </div>
+        </article>
+      </fieldset>
+
+      <article class="btn-row">
+        <button mat-flat-button color="primary" [disabled]="formGroup.invalid" (click)="saveNewProduto()">
+          Salvar
+        </button>
+        <button mat-stroked-button type="button" (click)="backNavigationHandler()">
+          Cancelar
+        </button>
+      </article>
+    </form>
+  </section>
+</div>

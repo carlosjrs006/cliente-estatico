@@ -35,5 +35,11 @@ export class ProdutoService {
   getAllFiltroProdutos(nomeProduto: string, situacao: string): Observable<any>{
     return this.http.get<any>(`${this.apiURL}produtos/filtros?nomeProduto=${(nomeProduto === undefined)?'': nomeProduto}&situacao=${(situacao === undefined)?'': situacao}`)
   }
+  getClienteById(id: any): Observable<any>{
+    return this.http.get<any>(`${this.apiURL}produtos/${id}`)
+  }
+  update(produto: any): Observable<any>{
+    return this.http.put<any>(`${this.apiURL}produtos/editar-produto`, produto);
+  }
 
 }

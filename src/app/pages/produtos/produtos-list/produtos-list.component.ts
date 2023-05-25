@@ -80,7 +80,7 @@ export class ProdutosListComponent implements OnInit {
 
   editarItem(id: number): void {
     // Implemente a lógica de edição aqui
-    this.router.navigate(['editar-produto', id]);
+    this.router.navigate(['/produtos/editar-produto', id]);
   }
 
   excluirItem(id: number){
@@ -92,7 +92,7 @@ export class ProdutosListComponent implements OnInit {
   }
 
   openSnackBar() {
-    this.snackBar.open('Cliente deletado com sucesso', 'Fechar', {
+    this.snackBar.open('Produto deletado com sucesso', 'Fechar', {
       duration: 5000, // duração em milissegundos
       panelClass: ['mat-toolbar', 'mat-primary'] // classes CSS adicionais
     });

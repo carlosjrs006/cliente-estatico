@@ -36,7 +36,7 @@ export class ClienteService {
     return this.http.get<ClienteResponse>(`${this.apiURL}clientes/${id}`)
   }
 
-  update(cliente: ClienteRequest){
+  update(cliente: ClienteRequest): Observable<any>{
     return this.http.put<any>(`${this.apiURL}clientes/editar-cliente`, cliente);
   }
 }

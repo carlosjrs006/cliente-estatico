@@ -43,7 +43,7 @@ export class ClientEditComponent implements OnInit {
 
   ngOnInit() {
     const id = this.router2.snapshot.params['id'];
-    (id);
+
     this.clienteService.getClienteById(id).subscribe(response => {
 
       if(response){
