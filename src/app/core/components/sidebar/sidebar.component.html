@@ -26,6 +26,16 @@
       </button>
     </div>
 
+
+    <div class="menuList">
+      <span class="menuList__title" [ngClass]="{ 'menuList__title--closed': !openState }">Caixa</span>
+      <button mat-button [ngClass]="{ openStateBtn: !openState }" [routerLink]="['/caixa']"
+        (click)="changeOpenStateDesktop($event)">
+        <span class="material-icons-outlined"> point_of_sale</span>
+        Caixa Livre
+      </button>
+    </div>
+
     <!-- <div class="menuList">
       <span class="menuList__title" [ngClass]="{ 'menuList__title--closed': !openState }">Usuario</span>
       <button mat-button [ngClass]="{ openStateBtn: !openState }" (click)="login()" *ngIf="!isLogged">

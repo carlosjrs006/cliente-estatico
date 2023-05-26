@@ -1,0 +1,38 @@
+<div class="page-wrapper">
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <button mat-button style="opacity: 0.6" class="subPageBtn" disabled>
+      <span class="material-icons-outlined home" routerLink="/"> home </span>
+    </button>
+    <span class="material-icons-outlined"> chevron_right </span>
+    <button mat-button color="primary" class="subPageBtn" routerLink="/caixa">
+      Caixa Livre
+    </button>
+  </nav>
+
+  <h1 class="pageTitle">
+    <span class="material-icons-outlined">point_of_sale</span>
+    Caixa Livre
+  </h1>
+  <section class="basePage">
+    <div class="container">
+      <div class="box box-medium">
+        <h3>Adicionar Items</h3>
+        <div class="filtros input-container">
+
+            <mat-form-field style="min-width: 300px;">
+              <input type="text" matInput
+              placeholder="Pesquisa por nome" class="mat-input-element mat-large"
+              [formControl]="campoEntrada" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let opcao of opcoesFiltradas | async" [value]="opcao.nomeProduto">
+                  <img [src]="opcao.urlImagem" style="max-width: 250px;max-height: 40px" *ngIf="opcao.urlImagem" > <span *ngIf="opcao.urlImagem">-</span> {{ opcao.nomeProduto }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+        </div>
+      </div>
+      <div class="box box-large">Caixa 3 (Grande)</div>
+    </div>
+  </section>
+</div>
