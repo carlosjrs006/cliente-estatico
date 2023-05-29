@@ -47,6 +47,10 @@ calcularValorTotalSemDesconto() {
   this.valorTotalSemDesconto = this.valorTotalVenda;
 }
 
+cancelarVenda(){
+  this.itensVenda = [];
+}
+
 adiconarItem() {
   const valorTotalItem = parseFloat(this.quantidade.value) * parseFloat(this.selectedOption.valorProduto);
 
