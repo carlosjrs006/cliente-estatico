@@ -1,0 +1,55 @@
+.calculadora {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  width: 300px;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  margin-bottom: 10px;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
+
+h3 {
+  margin-top: 10px;
+}
+.calculadora {
+  position: absolute;
+  cursor: move;
+}
+
+.calculadora {
+  background-color: #fffafa;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fechar-button {
+  position: absolute;
+  top: -8px;
+  right: 0px;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.resultado {
+  font-size: 25px;
+  text-align: center;
+}
+

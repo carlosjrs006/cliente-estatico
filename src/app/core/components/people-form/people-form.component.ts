@@ -1,7 +1,6 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-people-form',

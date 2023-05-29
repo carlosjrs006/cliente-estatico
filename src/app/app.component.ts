@@ -1,10 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { fadeAnimation } from 'src/assets/animations/page-transition';
 import { LoaderService } from './shared/services/loader.service';
-import { AuthConfig, OAuthService, NullValidationHandler } from 'angular-oauth2-oidc';
-import { MessageService } from './shared/services/message.service';
 import { LoginService } from './shared/services/login.service';
+import { MessageService } from './shared/services/message.service';
 
 
 @Component({
@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
   constructor(
     private contexts: ChildrenOutletContexts,
     public loaderService: LoaderService,
-    private oauthService: OAuthService,
     private messageService: MessageService,
     private loginService: LoginService
   ) {

@@ -100,7 +100,7 @@ h4 {
 }
 
 .box-medium {
-  flex-basis: 400px; /* Largura média */
+  flex-basis: 500px; /* Largura média */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,4 +108,13 @@ h4 {
 
 .box-large {
   flex-basis: 800px; /* Largura maior */
+}
+
+
+
+.itens{
+  display: flex;
+  flex-direction: column;
+  width: 85px;
+  font-size: 13px
 }

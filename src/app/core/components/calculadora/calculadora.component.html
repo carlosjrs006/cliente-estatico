@@ -1,0 +1,22 @@
+<div class="calculadora" #calculadora (mousedown)="onMouseDown($event)">
+  <button mat-icon-button class="fechar-button" (click)="fechar()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Valor 1</mat-label>
+    <input matInput type="number" [(ngModel)]="valor1" placeholder="Digite o valor 1">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Valor 2</mat-label>
+    <input matInput type="number" [(ngModel)]="valor2" placeholder="Digite o valor 2">
+  </mat-form-field>
+  <br>
+  <div class="btn-group" role="group">
+    <button mat-flat-button color="primary" (click)="somar()">+</button>
+    <button mat-flat-button color="primary" (click)="subtrair()">-</button>
+    <button mat-flat-button color="primary" (click)="multiplicar()">x</button>
+    <button mat-flat-button color="primary" (click)="dividir()">/</button>
+  </div>
+  <br>
+  <h3 class="resultado">Resultado: {{ resultado }}</h3>
+</div>
