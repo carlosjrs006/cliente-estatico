@@ -22,7 +22,6 @@
     "@angular/router": "^14.0.0",
     "@coreui/coreui": "^3.4.0",
     "@coreui/icons": "^1.0.1",
-    "angular-draggable": "^1.0.1",
     "angular-oauth2-oidc": "^14.0.1",
     "angular-oauth2-oidc-jwks": "^14.0.1",
     "bootstrap": "^4.1.3",
