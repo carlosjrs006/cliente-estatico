@@ -17,7 +17,9 @@ export class ModalVendaComponent implements OnInit {
 
 
   finalizarVenda() {
-    this.dialogRef.close({ finalizada: true, selectedOption: this.selectedOption });
+    if(this.selectedOption){
+      this.dialogRef.close({ finalizada: true, selectedOption: this.selectedOption });
+    }
   }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<ModalVendaComponent>) { }
