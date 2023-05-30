@@ -10,12 +10,13 @@ import { PeopleFormComponent } from './components/people-form/people-form.compon
 import { PublicFromComponent } from './components/public-from/public-from.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
+import { ModalVendaComponent } from './components/modal-venda/modal-venda.component';
 
 
 @NgModule({
   imports: [CommonModule, SharedModule, NgxMaskModule.forRoot()],
-  declarations: [SidebarComponent,ConfirmaDeleteComponent, PeopleFormComponent, OrganizationsFormComponent, PublicFromComponent, ModalErrorComponent, CalculadoraComponent],
-  exports: [SidebarComponent,ConfirmaDeleteComponent,PeopleFormComponent,OrganizationsFormComponent,PublicFromComponent,ModalErrorComponent,CalculadoraComponent],
+  declarations: [SidebarComponent,ConfirmaDeleteComponent, PeopleFormComponent, OrganizationsFormComponent, PublicFromComponent, ModalErrorComponent, CalculadoraComponent, ModalVendaComponent],
+  exports: [SidebarComponent,ConfirmaDeleteComponent,PeopleFormComponent,OrganizationsFormComponent,PublicFromComponent,ModalErrorComponent,CalculadoraComponent,ModalVendaComponent],
 
 })
 export class CoreModule {}

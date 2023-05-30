@@ -1,0 +1,48 @@
+<div style="display: flex;flex-direction: column;align-items: center; justify-content: center;">
+  <h1 mat-dialog-title>Finalizar Venda</h1>
+  <div mat-dialog-content style="font-size: 18px;color: #8a95d5;gap: 12px;flex-direction: row;display: flex;">
+    <article class="form-row">
+    <mat-form-field>
+      <mat-label>Opções Pagamentos</mat-label>
+      <mat-select [(ngModel)]="selectedOption">
+        <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngIf="this.selectedOption === 'Dinheiro'">
+      <mat-label>Valor Pago</mat-label>
+      <input type="text" matInput [(ngModel)]="valorPago" (ngModelChange)="calcularValorTotal()" />
+    </mat-form-field>
+    </article>
+
+    <article class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Valor Total</mat-label>
+        <input type="text" matInput [ngModel]="data.valorTotalVenda | currency" [disabled]="true"/>
+      </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="this.selectedOption === 'Dinheiro'">
+          <mat-label>Troco</mat-label>
+          <input type="text" matInput [ngModel]="valorTroco | currency" [disabled]="true" />
+        </mat-form-field>
+      </article>
+  </div>
+  <div mat-dialog-actions style="color: white;display: flex;gap: 12px;">
+    <button mat-button mat-dialog-close
+    style="
+    min-height: 50px;
+     background-color: #f72020;
+     width: 150px;
+     margin-left: 1px;
+     border-radius: 15px;
+   "
+    >Fechar</button>
+    <button mat-button (click)="finalizarVenda()"  style="
+    min-height: 50px;
+    background-color: #60c204;
+    width: 150px;
+    margin-left: 1px;
+    border-radius: 15px;
+  ">Finalizar</button>
+  </div>
+  </div>

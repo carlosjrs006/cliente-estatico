@@ -105,7 +105,7 @@
               <article class="form-row">
                 <mat-form-field appearance="fill">
                   <mat-label>Desconto (%)</mat-label>
-                  <input type="number" matInput placeholder="Desconto %" name="desconto" [(ngModel)]="desconto" (ngModelChange)="calcularValorTotal()" />
+                  <input type="number" matInput placeholder="Desconto %" name="desconto" [(ngModel)]="desconto" (input)="calcularValorTotal()" />
                 </mat-form-field>
               </article>
 
@@ -129,7 +129,9 @@
            ">
               Cancelar Venda
             </button>
-            <button mat-flat-button color="primary"  style="
+            <button mat-flat-button color="primary"
+            (click)="fecharVenda()"
+            style="
                 min-height: 50px;
                 background-color: #60c204;
                 width: 150px;
