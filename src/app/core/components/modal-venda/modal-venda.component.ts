@@ -17,7 +17,7 @@ export class ModalVendaComponent implements OnInit {
 
 
   finalizarVenda() {
-    if(this.selectedOption){
+    if(this.selectedOption !==null && this.selectedOption !== undefined){
       this.dialogRef.close({ finalizada: true, selectedOption: this.selectedOption });
     }
   }
