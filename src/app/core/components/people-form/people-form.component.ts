@@ -1,14 +1,20 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-people-form',
   templateUrl: './people-form.component.html',
-  styleUrls: ['./people-form.component.scss']
+  styleUrls: ['./people-form.component.scss'],
 })
 export class PeopleFormComponent implements OnInit {
-
   @Input() formGroup!: FormGroup;
 
   @Output() saveClientePF = new EventEmitter();
@@ -27,10 +33,12 @@ export class PeopleFormComponent implements OnInit {
 
   @ViewChild('telefoneInput') telefoneInput!: any;
 
-  constructor() { }
+  constructor() {}
 
-  sepatorKey(){
-    return this.formGroup.get('telefones')?.value.length > 10 ? this.separatorKeysCodes : [];
+  sepatorKey() {
+    return this.formGroup.get('telefones')?.value.length > 10
+      ? this.separatorKeysCodes
+      : [];
   }
 
   adicionarTelefone(): void {
@@ -42,43 +50,40 @@ export class PeopleFormComponent implements OnInit {
     }
   }
 
-  phoneKeyupMethod(){
+  phoneKeyupMethod() {
     const phone = this.formGroup.get('telefones')?.value;
-    if(phone){
+    if (phone) {
       this.phoneNumber = phone;
-      if(this.phoneNumber.length <= 10 && this.phoneMask === this.CELLPHONE){
-        this.phoneMask= this.LANDLINE;
-      }else if(this.phoneMask === this.LANDLINE && this.previusLength >= 10){
+      if (this.phoneNumber.length <= 10 && this.phoneMask === this.CELLPHONE) {
+        this.phoneMask = this.LANDLINE;
+      } else if (this.phoneMask === this.LANDLINE && this.previusLength >= 10) {
         this.phoneMask = this.CELLPHONE;
       }
       this.previusLength = this.phoneNumber.length;
     }
   }
 
-  getmaskRg(rg: string){
-    if(rg){
-      if(rg.length === 9){
-        return '00.000.000-0'
+  getmaskRg(rg: string) {
+    if (rg) {
+      if (rg.length === 9) {
+        return '00.000.000-0';
       }
-      return'';
+      return '';
     }
-    return'';
+    return '';
   }
 
   ngOnInit(): void {
-    if(this.telefonesEdit){
+    if (this.telefonesEdit) {
       this.telefones = this.telefonesEdit;
     }
   }
 
-  saveNewCliente(){
-  	this.saveClientePF.emit();
+  saveNewCliente() {
+    this.saveClientePF.emit();
   }
 
-  backNavigationHandler(){
+  backNavigationHandler() {
     this.backNavigation.emit();
   }
-
-
-
 }

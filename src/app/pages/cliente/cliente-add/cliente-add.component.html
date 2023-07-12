@@ -22,23 +22,22 @@
   </h1>
   <section class="basePage">
     <h3>Preencha abaixo os dados do cliente:</h3>
-    <app-public-from  [formGroup]="publicForm"></app-public-from>
+    <app-public-from [formGroup]="publicForm"></app-public-from>
 
     <app-people-form
-    *ngIf="this.publicForm.controls['tipoPublico'].value === 'pessoaFisica'"
-     [formGroup]="clientePFForm"
-    (saveClientePF)="saveNewCliente()"
-    (backNavigation)="backNavigationHandler()">
-  </app-people-form>
+      *ngIf="this.publicForm.controls['tipoPublico'].value === 'pessoaFisica'"
+      [formGroup]="clientePFForm"
+      (saveClientePF)="saveNewCliente()"
+      (backNavigation)="backNavigationHandler()"
+    >
+    </app-people-form>
 
     <app-organizations-form
-    *ngIf="this.publicForm.controls['tipoPublico'].value === 'pessoaJuridica'"
-     [formGroup]="clientePJForm"
-     (saveClientePJ)="saveNewCliente()"
-    (backNavigation)="backNavigationHandler()">
-  </app-organizations-form>
+      *ngIf="this.publicForm.controls['tipoPublico'].value === 'pessoaJuridica'"
+      [formGroup]="clientePJForm"
+      (saveClientePJ)="saveNewCliente()"
+      (backNavigation)="backNavigationHandler()"
+    >
+    </app-organizations-form>
   </section>
 </div>
-
-
-

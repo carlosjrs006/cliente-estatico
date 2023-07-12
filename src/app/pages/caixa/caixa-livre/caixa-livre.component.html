@@ -15,22 +15,39 @@
   </h1>
   <section class="basePage">
     <div class="container">
-      <div class="box box-medium" style="padding: 0; max-height: 258px;">
+      <div class="box box-medium" style="padding: 0; max-height: 258px">
         <h3>Adicionar Items</h3>
         <div class="filtros input-container">
           <article class="form-row">
             <mat-form-field style="min-width: 300px">
               <mat-label>Produto</mat-label>
-              <input type="text" matInput placeholder="Pesquisa por nome" class="mat-input-element mat-large"
-                [formControl]="campoEntrada" [matAutocomplete]="auto" />
-              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-                <mat-option *ngFor="let opcao of opcoesFiltradas | async" [value]="opcao" style="
+              <input
+                type="text"
+                matInput
+                placeholder="Pesquisa por nome"
+                class="mat-input-element mat-large"
+                [formControl]="campoEntrada"
+                [matAutocomplete]="auto"
+              />
+              <mat-autocomplete
+                #auto="matAutocomplete"
+                (optionSelected)="onOptionSelected($event)"
+              >
+                <mat-option
+                  *ngFor="let opcao of opcoesFiltradas | async"
+                  [value]="opcao"
+                  style="
                     min-width: 300px;
                     min-height: 65px;
                     align-items: center;
                     text-align: start;
-                  ">
-                  <img [src]="opcao.urlImagem" style="max-width: 250px; max-height: 40px" *ngIf="opcao.urlImagem" />
+                  "
+                >
+                  <img
+                    [src]="opcao.urlImagem"
+                    style="max-width: 250px; max-height: 40px"
+                    *ngIf="opcao.urlImagem"
+                  />
                   <span *ngIf="opcao.urlImagem">-</span> {{ opcao.nomeProduto }}
                 </mat-option>
               </mat-autocomplete>
@@ -40,124 +57,183 @@
         <article class="form-row">
           <mat-form-field appearance="outline" style="min-width: 300px">
             <mat-label>Quantidade</mat-label>
-            <input type="text" matInput [formControl]="quantidade" minlength="3" maxlength="64" />
+            <input
+              type="text"
+              matInput
+              [formControl]="quantidade"
+              minlength="3"
+              maxlength="64"
+            />
           </mat-form-field>
         </article>
 
         <article class="form-row">
-          <button mat-flat-button color="primary" style="
+          <button
+            mat-flat-button
+            color="primary"
+            style="
               min-height: 45px;
               background-color: #7d7de9;
               min-width: 497px;
               margin-left: 1px;
-            " (click)="adiconarItem()">
+            "
+            (click)="adiconarItem()"
+          >
             Adiconar item
           </button>
         </article>
       </div>
       <div class="box box-large">
-        <h3 style="text-align: center;">Items</h3>
-        <div class="box" style="border-radius: 10px;align-items: center;
-        display: flex;
-        gap: 58px;
-        font-size: 16px;
-        " *ngFor="let itens of itensVenda;let i = index">
-          <img [src]="itens.produto.urlImagem ? itens.produto.urlImagem : '../assets/img/Semimages.png'"
-            style="max-width: 250px; max-height: 50px" />
+        <h3 style="text-align: center">Items</h3>
+        <div
+          class="box"
+          style="
+            border-radius: 10px;
+            align-items: center;
+            display: flex;
+            gap: 58px;
+            font-size: 16px;
+          "
+          *ngFor="let itens of itensVenda; let i = index"
+        >
+          <img
+            [src]="
+              itens.produto.urlImagem
+                ? itens.produto.urlImagem
+                : '../assets/img/Semimages.png'
+            "
+            style="max-width: 250px; max-height: 50px"
+          />
 
-          <div class="itens" style="max-width: 80px;">
-            <span style="font-weight: 600;">Nome Produto:</span>
-            <span style="font-size: 16px;width: 110px;">{{itens.produto.nomeProduto}}</span>
+          <div class="itens" style="max-width: 80px">
+            <span style="font-weight: 600">Nome Produto:</span>
+            <span style="font-size: 16px; width: 110px">{{
+              itens.produto.nomeProduto
+            }}</span>
           </div>
-          <div class="itens" style="max-width: 50px;">
-            <span style="font-weight: 600;">Quantidade:</span>
-            <span style="font-size: 16px;">{{itens.quantidade}}</span>
+          <div class="itens" style="max-width: 50px">
+            <span style="font-weight: 600">Quantidade:</span>
+            <span style="font-size: 16px">{{ itens.quantidade }}</span>
           </div>
-          <div class="itens" style="max-width: 50px;">
-            <span style="font-weight: 600;">Valor do produto:</span>
-            <span style="font-size: 16px;">{{itens.produto.valorProduto | currency}}</span>
+          <div class="itens" style="max-width: 50px">
+            <span style="font-weight: 600">Valor do produto:</span>
+            <span style="font-size: 16px">{{
+              itens.produto.valorProduto | currency
+            }}</span>
           </div>
-          <div class="itens" style="max-width: 70px;">
-            <span style="font-weight: 600;">Valor total do item:</span>
-            <span style="font-size: 16px;">{{itens.valorTotalItem | currency}}</span>
+          <div class="itens" style="max-width: 70px">
+            <span style="font-weight: 600">Valor total do item:</span>
+            <span style="font-size: 16px">{{
+              itens.valorTotalItem | currency
+            }}</span>
           </div>
           <div class="itens">
-            <button mat-flat-button color="primary" (click)="removerItem(i)" style="
-               min-height: 31px;
+            <button
+              mat-flat-button
+              color="primary"
+              (click)="removerItem(i)"
+              style="
+                min-height: 31px;
                 background-color: #f72020;
                 width: 50px;
                 margin-left: 1px;
                 border-radius: 20px;
-              ">
+              "
+            >
               x
             </button>
           </div>
         </div>
 
-        <div *ngIf="itensVenda.length > 0"
-         class="box" style="border-radius: 10px;align-items: center;
-        flex-direction: column;
-        display: flex;
-        font-size: 16px;
-        ">
+        <div
+          *ngIf="itensVenda.length > 0"
+          class="box"
+          style="
+            border-radius: 10px;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            font-size: 16px;
+          "
+        >
           <div style="display: flex; gap: 12px">
-
-              <article class="form-row">
-                <mat-form-field appearance="fill">
-                  <mat-label>Desconto (%)</mat-label>
-                  <input type="number" matInput placeholder="Desconto %" name="desconto" [(ngModel)]="desconto" (input)="calcularValorTotal()" />
-                </mat-form-field>
-              </article>
-
+            <article class="form-row">
+              <mat-form-field appearance="fill">
+                <mat-label>Desconto (%)</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  placeholder="Desconto %"
+                  name="desconto"
+                  [(ngModel)]="desconto"
+                  (input)="calcularValorTotal()"
+                />
+              </mat-form-field>
+            </article>
 
             <article class="form-row">
               <mat-form-field appearance="fill">
                 <mat-label>Valor Total</mat-label>
-                <input type="text" matInput [ngModel]="valorTotalVenda | currency" [disabled]="true" />
+                <input
+                  type="text"
+                  matInput
+                  [ngModel]="valorTotalVenda | currency"
+                  [disabled]="true"
+                />
               </mat-form-field>
             </article>
           </div>
-          <div style="display:flex; gap: 10px">
-            <button mat-flat-button color="primary"
-            (click)="cancelarVenda()"
-            style="
-            min-height: 50px;
-             background-color: #f72020;
-             width: 150px;
-             margin-left: 1px;
-             border-radius: 15px;
-           ">
+          <div style="display: flex; gap: 10px">
+            <button
+              mat-flat-button
+              color="primary"
+              (click)="cancelarVenda()"
+              style="
+                min-height: 50px;
+                background-color: #f72020;
+                width: 150px;
+                margin-left: 1px;
+                border-radius: 15px;
+              "
+            >
               Cancelar Venda
             </button>
-            <button mat-flat-button color="primary"
-            (click)="fecharVenda()"
-            style="
+            <button
+              mat-flat-button
+              color="primary"
+              (click)="fecharVenda()"
+              style="
                 min-height: 50px;
                 background-color: #60c204;
                 width: 150px;
                 margin-left: 1px;
                 border-radius: 15px;
-              ">
+              "
+            >
               Fechar Venda
             </button>
 
-            <button mat-flat-button color="primary" (click)="abrirCalculadora()"
-            style="
+            <button
+              mat-flat-button
+              color="primary"
+              (click)="abrirCalculadora()"
+              style="
                 min-height: 50px;
                 background-color: #9ea19a;
                 width: 150px;
                 margin-left: 1px;
                 border-radius: 15px;
-              ">
+              "
+            >
               <mat-icon>calculate</mat-icon>
               Calculadora
             </button>
           </div>
         </div>
 
-      <div *ngIf="isOpenCalc">
+        <div *ngIf="isOpenCalc">
           <app-calculadora (fechar2)="fechar()"></app-calculadora>
-      </div>
+        </div>
       </div>
     </div>
   </section>
